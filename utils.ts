@@ -39,3 +39,11 @@ export const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement, Mo
   };
 
   export default handleNavItemClick;
+
+
+  export const tabs = [
+    { label: "Reservar", href: "#reservar" },
+    { label: "Disponibles", href: "/disponibles", onClick: "disponibles" },
+    { label: "Experiencias", href: "#experiencias", onClick: "experiencias" },
+    { label: "Contacto", href: "#contacto", onClick: "contacto" }
+  ];
