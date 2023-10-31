@@ -13,6 +13,7 @@
     "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-magic-motion": "^1.0.9",
     "react-useanimations": "^2.10.0"
   },
   "devDependencies": {
