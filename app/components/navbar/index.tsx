@@ -1,11 +1,8 @@
 "use client";
+import { MagicMotion } from "react-magic-motion";
 import { useCallback, useEffect, useState } from "react";
-
-import Image from "next/image";
-
 import UseAnimations from "react-useanimations";
 import menu2 from "react-useanimations/lib/menu2";
-import logo from "@/public/assets/logo/Logo.svg";
 import NavnarMenuDesktop from "./menu-desktop";
 import NavbarMenu from "./menu-mobile";
 import ButtonSignIn from "../buttons/sign-in";
@@ -37,7 +34,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav>
-      <div className="z-50 xs:h-full border-2 font-semibold md:text-lg  tracking-wide px-8 w-full flex items-center justify-between align-middle lg:pr-8 bg-metal2 bg-center bg-contain backdrop-blur-3xl">
+      <div className="z-50 xs:h-full fixed  font-semibold md:text-lg  tracking-wide px-8 w-full flex items-center justify-between align-middle lg:pr-8 bg-metal2 bg-center bg-contain backdrop-blur-3xl bg-white">
         <div className="hidden md:block">
           <Logo size="lg" />
         </div>
@@ -49,7 +46,6 @@ const Navbar: React.FC = () => {
         </button>
         <NavnarMenuDesktop />
         <div className="hidden sm:block">
-          {" "}
           <ButtonSignIn />
         </div>
       </div>
