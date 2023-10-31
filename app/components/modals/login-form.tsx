@@ -4,7 +4,7 @@ import Logo from "@/public/assets/logo";
 
 function Login() {
   return (
-    <section className="bg-primary  bg-gray-200 rounded-xl md:h-full">
+    <section className="bg-primary !z-50  bg-gray-200 rounded-xl md:h-full">
       <div className="flex flex-col z-20 items-center justify-center px-6 py-8 mx-auto md:h-full ">
         <a href="https://localhost:3000" className=" mb-6">
           <Logo size="md" />
