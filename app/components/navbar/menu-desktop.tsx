@@ -1,33 +1,56 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import { MagicTabSelect } from "react-magic-motion";
 import Link from "next/link";
-import handleNavItemClick from "@/utils";
+import { tabs } from "@/utils";
+
+interface Tab {
+  label: string;
+  href: string;
+}
 
 function NavnarMenuDesktop() {
-  const liclass = "my-2 hover:text-secondary  transition duration-700 drop-shadow-xl shadow-black";
-  return (
-    <div className="hidden sm:block">
-      {" "}
-      <ul className="flex gap-10  transition duration-500 ">
-        <li className={liclass}>
-          <Link href="#reservar">Reservar</Link>
-        </li>
-        <li className={liclass}>
-          <Link href="/disponibles" onClick={(e) => handleNavItemClick(e, "disponibles")}>
-            Disponibles
-          </Link>
-        </li>
-        <li className={liclass}>
-          <Link href="#experiencias" onClick={(e) => handleNavItemClick(e, "experiencias")}>
-            Experiencias
-          </Link>
-        </li>
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-        <li className={liclass}>
-          <Link href="#contacto" onClick={(e) => handleNavItemClick(e, "contacto")}>
-            Contacto
-          </Link>
-        </li>
-      </ul>
+  const handleItemClick = (index: number): void => {
+    setSelectedIndex(index);
+  };
+
+  return (
+    <div className="hidden md:block">
+      <div style={{ display: "flex", gap: "0.5rem" }}>
+        {tabs.map((tab: Tab, index: number) => (
+          <button
+            key={tab.label}
+            onClick={() => handleItemClick(index)}
+            style={{
+              padding: "0.65rem 0.75rem",
+
+              border: 0,
+              cursor: "pointer",
+            }}
+          >
+            {tab.label}
+            {selectedIndex === index && (
+              <div style={{ position: "relative", transform: "translateY(3px)" }}>
+                <MagicTabSelect id="underline" transition={{ type: "spring", bounce: 0.3 }}>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "0.15rem",
+                      backgroundColor: "black",
+                      position: "absolute",
+                    }}
+                  />
+                </MagicTabSelect>
+              </div>
+            )}
+          </button>
+        ))}
+        <Link href={tabs[selectedIndex].href} style={{ display: "none" }}>
+          Hidden Link for Navigation
+        </Link>
+      </div>
     </div>
   );
 }
