@@ -15,8 +15,6 @@ function ButtonSignIn() {
     setIsModalOpen(false);
   };
 
-  console.log();
-
   return (
     <div className="w-24 sm:block">
       <Image src={button} alt="boton" width={150} height={150} onClick={handleButtonClick} />
