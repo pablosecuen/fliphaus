@@ -4,7 +4,7 @@ import Navbar from "./components/navbar";
 import Footer from "./layout/footer";
 
 export const metadata: Metadata = {
-  title: "FlipHaus",
+  title: "Rent House",
   description: "Generado con NextJs",
 };
 
