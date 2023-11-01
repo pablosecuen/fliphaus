@@ -7,6 +7,7 @@ import NavnarMenuDesktop from "./menu-desktop";
 import NavbarMenu from "./menu-mobile";
 import ButtonSignIn from "../buttons/sign-in";
 import Logo from "@/public/assets/logo";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -36,7 +37,10 @@ const Navbar: React.FC = () => {
     <nav>
       <div className="z-50 xs:h-full fixed  font-semibold md:text-lg  tracking-wide px-8 w-full flex items-center justify-between align-middle lg:pr-8 bg-metal2 bg-center bg-contain backdrop-blur-3xl bg-white">
         <div className="hidden md:block">
-          <Logo size="lg" />
+          <Link href="/">
+            {" "}
+            <Logo size="lg" />
+          </Link>
         </div>
         <div className="md:hidden block">
           <Logo size="md" />
@@ -45,6 +49,7 @@ const Navbar: React.FC = () => {
           <UseAnimations animation={menu2} size={50} fillColor="#a1d1cf" strokeColor="#a1d1cf" />
         </button>
         <NavnarMenuDesktop />
+
         <div className="hidden sm:block">
           <ButtonSignIn />
         </div>
